@@ -21,11 +21,12 @@ class GCN_Encoder(torch.nn.Module):
 
 if __name__ == '__main__':
     # args
-    out_channels = 16
+    out_channels = 128
     epochs = 200
+    dataset_name = "Cora"  # Cora or Citeseer
 
     # dataset
-    dataset = Planetoid(root='../data/', name='Citeseer', split='random', num_train_per_class=5)
+    dataset = Planetoid(root='../../data', name=dataset_name)
     data = dataset[0]
     train_data, val_data, test_data = T.RandomLinkSplit(num_val=0.05,
                                                         num_test=0.1,
